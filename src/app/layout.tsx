@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { GeistPixelGrid } from "geist/font/pixel";
 import "./globals.css";
 import { PixelLoader } from "@/components/pixel-loader";
-import { ScrollProgress } from "@/components/scroll-progress";
 import { CustomCursor } from "@/components/custom-cursor";
 import { SmoothScroll } from "@/components/smooth-scroll";
 import { SiteHeader } from "@/components/site-header";
@@ -31,11 +31,10 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} ${GeistPixelGrid.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         <PixelLoader />
-        <ScrollProgress />
         <CustomCursor />
         <SmoothScroll />
         <SiteHeader />

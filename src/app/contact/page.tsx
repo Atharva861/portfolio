@@ -42,14 +42,6 @@ export default function Contact() {
   return (
     <>
       <section className="relative pt-40 pb-8 sm:pt-48">
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[70vh] bg-gradient-soft"
-        />
-        <div
-          aria-hidden
-          className="pointer-events-none absolute left-1/2 top-24 -z-10 h-[420px] w-[420px] -translate-x-1/2 rounded-full bg-sapphire/20 blur-[120px]"
-        />
         <div className="mx-auto max-w-4xl px-6 text-center">
           <Reveal>
             <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-border/60 bg-card/70 px-3 py-1 font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground">

@@ -12,6 +12,7 @@
   --radius-4xl: calc(var(--radius) + 16px);
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+  --font-pixel: var(--font-geist-pixel-grid), ui-monospace, monospace;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -102,18 +103,57 @@
   * {
     border-color: var(--color-border);
   }
+
+  ::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--navy);
+    border-radius: 0;
+  }
+
+  .loading-scrollbar::-webkit-scrollbar-track,
+  .loading-scrollbar::-webkit-scrollbar-thumb {
+    background: var(--navy);
+  }
+
+  ::-webkit-scrollbar-button {
+    display: none;
+  }
+
   html {
     scroll-behavior: smooth;
   }
+
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
   }
+
   ::selection {
     background: var(--sapphire);
     color: oklch(0.985 0.008 240);
+  }
+
+  @media (pointer: fine) {
+    *, *::before, *::after {
+      cursor: none !important;
+    }
+  }
+
+  html.custom-cursor-active,
+  html.custom-cursor-active *,
+  html.custom-cursor-active *::before,
+  html.custom-cursor-active *::after {
+    cursor: none !important;
   }
 }
 
@@ -126,6 +166,20 @@
 
 @utility gradient-text {
   background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility header-gradient-text {
+  background: linear-gradient(180deg, var(--sapphire) 0%, var(--navy) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+:is(.dark *) .header-gradient-text {
+  background: linear-gradient(180deg, var(--sapphire) 0%, var(--ice) 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -145,4 +199,38 @@
 
 @utility shadow-glow {
   box-shadow: var(--shadow-glow);
+}
+
+@keyframes character-float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+@keyframes shadow-pulse {
+  0%, 100% {
+    transform: scaleX(1);
+    opacity: 0.35;
+  }
+  50% {
+    transform: scaleX(0.88);
+    opacity: 0.18;
+  }
+}
+
+@utility animate-character-float {
+  animation: character-float 4s ease-in-out infinite;
+}
+
+@utility animate-shadow-pulse {
+  animation: shadow-pulse 4s ease-in-out infinite;
+}
+
+@utility pixelated {
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: -webkit-crisp-edges;
 }

@@ -2,11 +2,12 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, ArrowUpRight, Download, FileText, Sparkles } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { AnimatedButton } from "@/components/animated-button";
 import { Section } from "@/components/section";
 import { Reveal, RevealStagger, revealItem } from "@/components/reveal";
-import { SocialRow } from "@/components/socials";
+import { PixelCharacter } from "@/components/pixel-character";
+import { GeistPixelGrid } from "geist/font/pixel";
 
 const skills = [
   { title: "Programming", items: ["JavaScript", "TypeScript", "Python", "SQL", "C++"] },
@@ -52,77 +53,39 @@ export default function Home() {
     <>
       {/* HERO */}
       <section className="relative isolate overflow-hidden pt-40 pb-24 sm:pt-48 sm:pb-32">
-        {/* Ambient glow */}
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[80vh] bg-gradient-soft"
-        />
-        <div
-          aria-hidden
-          className="pointer-events-none absolute left-1/2 top-24 -z-10 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-sapphire/20 blur-[120px]"
-        />
-        <div className="mx-auto max-w-6xl px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20, filter: "blur(8px)" }}
-            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-            transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
-            className="mb-6 inline-flex items-center gap-2 rounded-full border border-border/60 bg-card/70 px-3 py-1 font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground backdrop-blur"
-          >
-            <Sparkles size={12} className="text-sapphire" />
-            Available for opportunities
-          </motion.div>
+        <div className="mx-auto max-w-[1360px] px-6 lg:px-8">
+          <div className="flex flex-col-reverse items-center justify-between gap-12 md:flex-row md:items-center md:gap-8 lg:gap-12">
+            <div className="flex-1 max-w-full md:max-w-[58%] lg:max-w-[65%]">
+              <motion.h1
+                initial={{ opacity: 0, y: 20, filter: "blur(8px)" }}
+                animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
+                className={`${GeistPixelGrid.className} font-pixel header-gradient-text text-5xl sm:text-6xl md:text-7xl lg:text-[84px] xl:text-[96px] font-normal leading-[1.08] tracking-normal`}
+              >
+                Building software<br />
+                with intention.
+              </motion.h1>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 20, filter: "blur(8px)" }}
-            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-            transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
-            className="max-w-5xl text-5xl font-light leading-[0.95] tracking-tight sm:text-7xl md:text-[92px]"
-          >
-            Atharva <span className="gradient-text italic">Salunke</span>
-          </motion.h1>
-
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
-            className="mt-6 font-mono text-sm uppercase tracking-[0.28em] text-muted-foreground sm:text-base"
-          >
-            Full Stack Developer <span className="text-sapphire">•</span> AI/ML Engineer{" "}
-            <span className="text-sapphire">•</span> Computer Vision Enthusiast
-          </motion.p>
-
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut", delay: 0.55 }}
-            className="mt-8 max-w-2xl text-lg leading-relaxed text-foreground/80 sm:text-xl"
-          >
-            Final-year Computer Engineering student shipping production-grade web applications,
-            exploring AI research, and building for real clients. Software is a craft I care about
-            deeply — from the last query to the first pixel.
-          </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut", delay: 0.7 }}
-            className="mt-10 flex flex-wrap items-center gap-4"
-          >
-            <Link href="/projects">
-              <AnimatedButton>
-                View my work <ArrowRight size={16} />
-              </AnimatedButton>
-            </Link>
-            <Link href="/contact">
-              <AnimatedButton variant="ghost">Get in touch</AnimatedButton>
-            </Link>
-            <div className="ml-1 hidden sm:block">
-              <SocialRow />
+              <motion.p
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
+                className="mt-8 max-w-2xl text-lg sm:text-xl leading-relaxed text-navy/85 dark:text-ice/85 font-mono"
+              >
+                Modern web applications,<br />
+                AI experiments,<br />
+                and digital experiences.
+              </motion.p>
             </div>
-          </motion.div>
 
-          <div className="mt-8 sm:hidden">
-            <SocialRow />
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9, filter: "blur(10px)" }}
+              animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+              transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 0.4 }}
+              className="flex w-full justify-center md:w-auto md:justify-end md:shrink-0 lg:-mr-6 xl:-mr-12"
+            >
+              <PixelCharacter className="w-64 sm:w-72 md:w-60 lg:w-80 xl:w-96" />
+            </motion.div>
           </div>
         </div>
       </section>
@@ -141,7 +104,7 @@ export default function Home() {
           <Reveal className="md:col-span-3">
             <div className="space-y-5 text-lg leading-relaxed text-foreground/80">
               <p>
-                I'm Atharva — a final-year Computer Engineering student who found programming and
+                I&apos;m Atharva — a final-year Computer Engineering student who found programming and
                 never really stopped. What began as tinkering with small scripts grew into an
                 obsession with well-crafted software: fast, reliable, and quietly elegant.
               </p>
@@ -151,7 +114,7 @@ export default function Home() {
                 honest interfaces on the front, and models that actually move a metric.
               </p>
               <p>
-                Whether it's a client project, a research prototype, or a weekend experiment, I try
+                Whether it&apos;s a client project, a research prototype, or a weekend experiment, I try
                 to leave the code better than I found it.
               </p>
             </div>
@@ -266,53 +229,6 @@ export default function Home() {
             </AnimatedButton>
           </Link>
         </div>
-      </Section>
-
-      {/* RESUME */}
-      <Section
-        id="resume"
-        eyebrow="Resume"
-        title={<>Interactive résumé.</>}
-        subtitle="Preview it inline or grab the PDF."
-      >
-        <Reveal>
-          <div className="glass overflow-hidden rounded-3xl">
-            <div className="flex flex-wrap items-center justify-between gap-4 border-b border-border/50 bg-card/60 px-6 py-4">
-              <div className="flex items-center gap-3">
-                <div className="grid h-10 w-10 place-items-center rounded-xl bg-gradient-primary text-primary-foreground shadow-soft">
-                  <FileText size={18} />
-                </div>
-                <div>
-                  <div className="text-sm font-medium">Atharva_Salunke_Resume.pdf</div>
-                  <div className="text-xs text-muted-foreground">Updated recently</div>
-                </div>
-              </div>
-              <div className="flex items-center gap-2">
-                <a href="/resume.pdf" target="_blank" rel="noreferrer">
-                  <AnimatedButton variant="ghost">
-                    Open in new tab <ArrowUpRight size={16} />
-                  </AnimatedButton>
-                </a>
-                <a href="/resume.pdf" download>
-                  <AnimatedButton>
-                    Download <Download size={16} />
-                  </AnimatedButton>
-                </a>
-              </div>
-            </div>
-            <div className="aspect-[4/5] w-full bg-secondary sm:aspect-[16/10]">
-              <object data="/resume.pdf" type="application/pdf" className="h-full w-full">
-                <div className="flex h-full items-center justify-center p-8 text-center text-sm text-muted-foreground">
-                  Your browser can't preview PDFs inline —{" "}
-                  <a className="ml-1 text-sapphire underline" href="/resume.pdf">
-                    download it here
-                  </a>
-                  .
-                </div>
-              </object>
-            </div>
-          </div>
-        </Reveal>
       </Section>
     </>
   );

@@ -15,6 +15,9 @@ export function CustomCursor() {
     if (typeof window === "undefined") return;
     const mq = window.matchMedia("(pointer: fine)");
     setEnabled(mq.matches);
+    if (mq.matches) {
+      document.documentElement.classList.add("custom-cursor-active");
+    }
     const onMove = (e: MouseEvent) => {
       x.set(e.clientX);
       y.set(e.clientY);
@@ -23,25 +26,40 @@ export function CustomCursor() {
       setHovering(isInteractive);
     };
     window.addEventListener("mousemove", onMove);
-    return () => window.removeEventListener("mousemove", onMove);
+    return () => {
+      window.removeEventListener("mousemove", onMove);
+      document.documentElement.classList.remove("custom-cursor-active");
+    };
   }, [x, y]);
 
   if (!enabled) return null;
 
   return (
-    <>
-      <motion.div
-        aria-hidden
-        className="pointer-events-none fixed left-0 top-0 z-[80] h-2 w-2 rounded-full bg-sapphire"
-        style={{ x: sx, y: sy, translateX: "-50%", translateY: "-50%" }}
-      />
-      <motion.div
-        aria-hidden
-        className="pointer-events-none fixed left-0 top-0 z-[80] rounded-full border border-sapphire/50"
-        style={{ x: sx, y: sy, translateX: "-50%", translateY: "-50%" }}
-        animate={{ width: hovering ? 48 : 28, height: hovering ? 48 : 28, opacity: hovering ? 1 : 0.5 }}
-        transition={{ type: "spring", stiffness: 300, damping: 25 }}
-      />
-    </>
+    <motion.svg
+      aria-hidden
+      viewBox="0 0 4 4"
+      className="pointer-events-none fixed left-0 top-0 z-[80] text-navy dark:text-white drop-shadow-[0_0_1px_rgba(255,255,255,0.8)]"
+      style={{
+        x: sx,
+        y: sy,
+        translateX: "-50%",
+        translateY: "-50%",
+        shapeRendering: "crispEdges",
+      }}
+      animate={{
+        width: hovering ? 26 : 18,
+        height: hovering ? 26 : 18,
+      }}
+      transition={{ type: "spring", stiffness: 400, damping: 25 }}
+    >
+      {/* Top bar */}
+      <rect x="1" y="0" width="2" height="1" fill="currentColor" />
+      {/* Bottom bar */}
+      <rect x="1" y="3" width="2" height="1" fill="currentColor" />
+      {/* Left bar */}
+      <rect x="0" y="1" width="1" height="2" fill="currentColor" />
+      {/* Right bar */}
+      <rect x="3" y="1" width="1" height="2" fill="currentColor" />
+    </motion.svg>
   );
 }

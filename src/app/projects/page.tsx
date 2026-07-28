@@ -56,10 +56,6 @@ export default function Projects() {
   return (
     <>
       <section className="relative pt-40 pb-8 sm:pt-48">
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[60vh] bg-gradient-soft"
-        />
         <div className="mx-auto max-w-6xl px-6">
           <Reveal>
             <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-border/60 bg-card/70 px-3 py-1 font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
