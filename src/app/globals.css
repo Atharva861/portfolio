@@ -138,6 +138,10 @@
     -webkit-font-smoothing: antialiased;
   }
 
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-pixelify-sans);
+  }
+
   ::selection {
     background: var(--sapphire);
     color: oklch(0.985 0.008 240);

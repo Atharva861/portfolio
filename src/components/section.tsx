@@ -17,7 +17,7 @@ export function Section({
   className?: string;
 }) {
   return (
-    <section id={id} className={cn("mx-auto w-full max-w-6xl px-6 py-24 sm:py-28", className)}>
+    <section id={id} className={cn("mx-auto w-full max-w-[1360px] px-6 lg:px-8 pt-40 pb-24 sm:pt-48 sm:pb-32", className)}>
       {(eyebrow || title || subtitle) && (
         <div className="mb-14 max-w-3xl">
           {eyebrow && (
@@ -32,7 +32,7 @@ export function Section({
             </h2>
           )}
           {subtitle && (
-            <p className="mt-4 max-w-2xl text-base text-muted-foreground sm:text-lg">{subtitle}</p>
+            <p className="mt-4 max-w-2xl text-base text-navy font-pixel sm:text-lg">{subtitle}</p>
           )}
         </div>
       )}

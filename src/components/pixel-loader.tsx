@@ -131,7 +131,7 @@ export function PixelLoader() {
             transition={{ duration: reduce ? 0.001 : 1.5, delay: reduce ? 0 : 0.3, ease: "linear" }}
           >
             <div className="text-center select-none">
-              <div className={`${pixelify.className} text-ice text-[100px] sm:text-[140px] md:text-[180px] lg:text-[210px] tracking-normal leading-[0.9]`}>
+              <div className={`${pixelify.className} text-ice text-[17vw] sm:text-[140px] md:text-[180px] lg:text-[210px] tracking-normal leading-[0.9]`}>
                 ATHARVA<br />SALUNKE
               </div>
             </div>

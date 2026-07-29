@@ -41,17 +41,13 @@ const cards: {
 export default function Contact() {
   return (
     <>
-      <section className="relative pt-40 pb-8 sm:pt-48">
-        <div className="mx-auto max-w-4xl px-6 text-center">
+      <section className="relative pt-40 pb-24 sm:pt-48 sm:pb-32">
+        <div className="mx-auto max-w-[1360px] px-6 lg:px-8 text-center">
           <Reveal>
-            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-border/60 bg-card/70 px-3 py-1 font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
-              <span className="h-1.5 w-1.5 rounded-full bg-sapphire" />
-              Contact
-            </div>
             <h1 className="text-5xl font-light leading-[1] tracking-tight sm:text-7xl">
-              Let's build something <span className="gradient-text italic">together</span>.
+              Let's build something <span className="gradient-text">together</span>.
             </h1>
-            <p className="mx-auto mt-6 max-w-xl text-lg text-foreground/70">
+            <p className="mx-auto mt-6 max-w-xl text-lg text-navy font-pixel">
               I read every message. Whether it's a role, a collaboration, or a curious question —
               the fastest path is email.
             </p>

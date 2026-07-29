@@ -55,17 +55,13 @@ const projects: Project[] = [
 export default function Projects() {
   return (
     <>
-      <section className="relative pt-40 pb-8 sm:pt-48">
-        <div className="mx-auto max-w-6xl px-6">
+      <section className="relative pt-40 pb-24 sm:pt-48 sm:pb-32">
+        <div className="mx-auto max-w-[1360px] px-6 lg:px-8">
           <Reveal>
-            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-border/60 bg-card/70 px-3 py-1 font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
-              <span className="h-1.5 w-1.5 rounded-full bg-sapphire" />
-              Projects
-            </div>
             <h1 className="max-w-4xl text-5xl font-light leading-[1] tracking-tight sm:text-7xl">
-              A record of things I've <span className="gradient-text italic">built</span>.
+              A record of things I've <span className="gradient-text">built</span>.
             </h1>
-            <p className="mt-6 max-w-2xl text-lg text-foreground/70">
+            <p className="mt-6 max-w-2xl text-lg text-navy font-pixel">
               Full stack products, AI research, and computer vision experiments. Placeholder cards
               below — paste your details and I'll finish these.
             </p>
@@ -95,7 +91,7 @@ export default function Projects() {
               </div>
               <div className="flex flex-1 flex-col p-7">
                 <h3 className="text-2xl font-medium">{p.title}</h3>
-                <p className="mt-3 text-base leading-relaxed text-muted-foreground">
+                <p className="mt-3 text-base leading-relaxed text-navy font-pixel">
                   {p.description}
                 </p>
                 <div className="mt-5 flex flex-wrap gap-2">

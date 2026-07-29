@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Pixelify_Sans } from "next/font/google";
 import { GeistPixelGrid } from "geist/font/pixel";
 import "./globals.css";
 import { PixelLoader } from "@/components/pixel-loader";
@@ -18,9 +18,15 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const pixelifySans = Pixelify_Sans({
+  variable: "--font-pixelify-sans",
+  subsets: ["latin"],
+});
+
 export const metadata: Metadata = {
-  title: "Atharva Salunke — Full Stack Developer & AI/ML Engineer",
-  description: "Portfolio of Atharva Salunke — final-year Computer Engineering student building production web apps, AI research, and computer vision projects.",
+  title: "Atharva Salunke",
+  description:
+    "Portfolio of Atharva Salunke — Computer Engineering graduate building production web apps, AI research, and computer vision projects.",
 };
 
 export default function RootLayout({
@@ -31,16 +37,14 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} ${GeistPixelGrid.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} ${pixelifySans.variable} ${GeistPixelGrid.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         <PixelLoader />
         <CustomCursor />
         <SmoothScroll />
         <SiteHeader />
-        <main className="min-h-screen flex-1">
-          {children}
-        </main>
+        <main className="min-h-screen flex-1">{children}</main>
         <SiteFooter />
       </body>
     </html>
