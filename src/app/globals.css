@@ -60,7 +60,7 @@
   --sapphire: oklch(0.44 0.19 260);
   --navy: oklch(0.15 0.08 265);
 
-  --background: oklch(0.985 0.008 240);
+  --background: #f8f3ea;
   --foreground: var(--navy);
   --card: oklch(1 0 0);
   --card-foreground: var(--navy);

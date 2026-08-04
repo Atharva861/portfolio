@@ -2,11 +2,13 @@
 
 import { useCallback, useEffect, useRef } from "react";
 import { cn } from "@/lib/utils";
+import { SpriteRegistry, type AnimationType } from "@/lib/spriteManager";
 
 interface PixelCharacterProps {
   className?: string;
   fps?: number;
   waveFps?: number;
+  animation?: AnimationType;
 }
 
 // 0-indexed frame sequence for waving (frames 10, 11, 12 in 1-indexed terms)
@@ -16,7 +18,7 @@ interface PixelCharacterProps {
 // Sequence creates a natural, responsive waving gesture back and forth
 const WAVE_SEQUENCE = [9, 10, 11, 10, 11, 10, 11, 9];
 
-export function PixelCharacter({ className, fps = 2, waveFps = 8 }: PixelCharacterProps) {
+export function PixelCharacter({ className, fps = 2, waveFps = 8, animation = "idle" }: PixelCharacterProps) {
   const spriteRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const isVisibleRef = useRef(true);
@@ -54,7 +56,7 @@ export function PixelCharacter({ className, fps = 2, waveFps = 8 }: PixelCharact
   }, []);
 
   const triggerWave = useCallback(() => {
-    if (stateRef.current !== "wave") {
+    if (animation === "idle" && stateRef.current !== "wave") {
       stateRef.current = "wave";
       waveIndexRef.current = 0;
       const now = performance.now();
@@ -62,7 +64,7 @@ export function PixelCharacter({ className, fps = 2, waveFps = 8 }: PixelCharact
       nextWaveTimeRef.current = now + getNextWaveDelay();
       updateDOM(WAVE_SEQUENCE[0]);
     }
-  }, [getNextWaveDelay, updateDOM]);
+  }, [getNextWaveDelay, updateDOM, animation]);
 
   useEffect(() => {
     const idleDuration = 1000 / fps;
@@ -85,13 +87,15 @@ export function PixelCharacter({ className, fps = 2, waveFps = 8 }: PixelCharact
         lastFrameTimeRef.current = time;
 
         if (stateRef.current === "idle") {
-          if (time >= nextWaveTimeRef.current) {
+          if (animation === "idle" && time >= nextWaveTimeRef.current) {
             stateRef.current = "wave";
             waveIndexRef.current = 0;
             updateDOM(WAVE_SEQUENCE[0]);
           } else {
             // Idle loops between frames 0 and 8 (Frames 1-9)
-            idleIndexRef.current = (idleIndexRef.current + 1) % 9;
+            // For umbrella, we loop through all 12 frames of the sprite sheet
+            const frameCount = animation === "umbrella" ? 12 : 9;
+            idleIndexRef.current = (idleIndexRef.current + 1) % frameCount;
             updateDOM(idleIndexRef.current);
           }
         } else if (stateRef.current === "wave") {
@@ -161,12 +165,12 @@ export function PixelCharacter({ className, fps = 2, waveFps = 8 }: PixelCharact
       )}
     >
       {/* Floating character wrapper (aspect 3/4 matches actual 576x768 frame resolution) */}
-      <div className="animate-character-float relative z-10 w-full aspect-[3/4] transition-transform duration-300 group-hover:scale-[1.03]">
+      <div className="relative z-10 w-full aspect-[3/4] transition-transform duration-300 group-hover:scale-[1.03]">
         <div
           ref={spriteRef}
           className="pixelated absolute inset-0 w-full h-full bg-no-repeat"
           style={{
-            backgroundImage: "url(/sprites/atharva-sprite.png)",
+            backgroundImage: `url(${SpriteRegistry[animation]})`,
             backgroundSize: "400% 300%",
             backgroundPosition: "0% 0%",
             imageRendering: "pixelated",
@@ -175,7 +179,9 @@ export function PixelCharacter({ className, fps = 2, waveFps = 8 }: PixelCharact
       </div>
 
       {/* Soft shadow beneath character that scales with float animation, moved closer to feet */}
-      <div className="animate-shadow-pulse relative z-0 -mt-[23%] h-1.5 w-[38%] rounded-full bg-navy/12 blur-[3px] transition-all duration-300 dark:bg-sapphire/20 sm:h-2 sm:w-2/5 group-hover:bg-navy/16 dark:group-hover:bg-sapphire/25" />
+      {animation !== "umbrella" && (
+        <div className="relative z-0 -mt-[23%] h-1.5 w-[38%] rounded-full bg-navy/12 blur-[3px] transition-all duration-300 dark:bg-sapphire/20 sm:h-2 sm:w-2/5 group-hover:bg-navy/16 dark:group-hover:bg-sapphire/25" />
+      )}
     </div>
   );
 }

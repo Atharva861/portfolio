@@ -7,7 +7,7 @@ import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { AnimatedButton } from "@/components/animated-button";
 import { Section } from "@/components/section";
 import { Reveal, RevealStagger, revealItem } from "@/components/reveal";
-import { PixelCharacter } from "@/components/pixel-character";
+import { WeatherMascot } from "@/components/weather-mascot";
 import { GeistPixelGrid, GeistPixelCircle, GeistPixelTriangle, GeistPixelLine } from "geist/font/pixel";
 
 const skills = [
@@ -153,7 +153,7 @@ export default function Home() {
               transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 0.4 }}
               className="flex w-full justify-center -mt-12 md:mt-0 md:w-auto md:justify-end md:shrink-0 lg:-mr-6 xl:-mr-12"
             >
-              <PixelCharacter className="w-64 sm:w-72 md:w-60 lg:w-80 xl:w-96" />
+              <WeatherMascot className="w-64 sm:w-72 md:w-60 lg:w-80 xl:w-96" />
             </motion.div>
           </div>
         </div>
