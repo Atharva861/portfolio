@@ -3,9 +3,10 @@
 import { useEffect, useState } from "react";
 import { PixelCharacter } from "./pixel-character";
 import { getAnimationForWeather } from "@/lib/spriteManager";
+import { WeatherState } from "@/lib/weather";
 
 export function WeatherMascot({ className }: { className?: string }) {
-  const [weather, setWeather] = useState<"clear" | "rain">("clear");
+  const [weather, setWeather] = useState<WeatherState>("clear");
 
   useEffect(() => {
     const fetchWeather = async () => {
