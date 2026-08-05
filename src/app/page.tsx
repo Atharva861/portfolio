@@ -102,11 +102,11 @@ export default function Home() {
                   const isActive = index === fontIndex;
                   const isPast = index === (fontIndex - 1 + fonts.length) % fonts.length;
                   const isUpcoming = !isActive && !isPast;
-                  
+
                   const maskPosition = isActive ? "0% 50%" : isPast ? "0% 0%" : "0% 100%";
                   const transitionDuration = "3000ms";
-                  const transition = isUpcoming 
-                    ? "none" 
+                  const transition = isUpcoming
+                    ? "none"
                     : `filter ${transitionDuration} cubic-bezier(0.22, 1, 0.36, 1), -webkit-mask-position ${transitionDuration} cubic-bezier(0.22, 1, 0.36, 1), mask-position ${transitionDuration} cubic-bezier(0.22, 1, 0.36, 1)`;
 
                   const maskGradient = "linear-gradient(to bottom, transparent 0%, transparent 33.3%, black 33.4%, black 66.6%, transparent 66.7%, transparent 100%)";
