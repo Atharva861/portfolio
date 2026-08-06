@@ -55,10 +55,10 @@
 :root {
   --radius: 0.875rem;
   /* Ice #D6E6F3, Powder #A6C5D7, Sapphire #0F52BA, Navy #000926 */
-  --ice: oklch(0.925 0.028 240);
-  --powder: oklch(0.815 0.045 234);
-  --sapphire: oklch(0.44 0.19 260);
-  --navy: oklch(0.15 0.08 265);
+  --ice: #d6e9f7;
+  --powder: #a7c8dc;
+  --sapphire: #0047b8;
+  --navy: #01052c;
 
   --background: #f8f3ea;
   --foreground: var(--navy);

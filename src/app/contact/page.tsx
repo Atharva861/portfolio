@@ -15,28 +15,28 @@ const cards: {
   Icon: IconType;
   hint: string;
 }[] = [
-  {
-    label: "Email",
-    handle: "atharvasalunke861@gmail.com",
-    href: "mailto:atharvasalunke861@gmail.com",
-    Icon: Mail as IconType,
-    hint: "Fastest way to reach me",
-  },
-  {
-    label: "LinkedIn",
-    handle: "in/atharva--salunke",
-    href: "https://www.linkedin.com/in/atharva--salunke",
-    Icon: FaLinkedinIn as IconType,
-    hint: "Let's connect professionally",
-  },
-  {
-    label: "GitHub",
-    handle: "@Atharva861",
-    href: "https://github.com/Atharva861",
-    Icon: FaGithub as IconType,
-    hint: "See what I'm building",
-  },
-];
+    {
+      label: "Email",
+      handle: "atharvasalunke861@gmail.com",
+      href: "mailto:atharvasalunke861@gmail.com",
+      Icon: Mail as IconType,
+      hint: "Fastest way to reach me",
+    },
+    {
+      label: "LinkedIn",
+      handle: "in/atharva--salunke",
+      href: "https://www.linkedin.com/in/atharva--salunke",
+      Icon: FaLinkedinIn as IconType,
+      hint: "Let's connect professionally",
+    },
+    {
+      label: "GitHub",
+      handle: "@Atharva861",
+      href: "https://github.com/Atharva861",
+      Icon: FaGithub as IconType,
+      hint: "See what I'm building",
+    },
+  ];
 
 export default function Contact() {
   return (

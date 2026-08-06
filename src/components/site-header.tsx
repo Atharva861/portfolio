@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 import { Pixelify_Sans } from "next/font/google";
@@ -27,6 +28,26 @@ export function SiteHeader() {
 
   return (
     <>
+      {/* Logo — fixed top-left */}
+      <motion.div
+        initial={{ opacity: 0, x: -12 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
+        className="hidden sm:block fixed left-5 sm:left-7 top-4 z-40"
+      >
+        <Link href="/" data-cursor="hover" aria-label="Home">
+          <Image
+            src="/images/logo.png"
+            alt="Atharva Salunke"
+            width={44}
+            height={44}
+            className="pixelated hover:scale-110 transition-transform duration-200"
+            priority
+          />
+        </Link>
+      </motion.div>
+
+      {/* Nav links — centered */}
       <motion.header
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
@@ -52,6 +73,7 @@ export function SiteHeader() {
         </nav>
       </motion.header>
 
+      {/* Weather — fixed top-right */}
       {weatherInfo && (
         <motion.div
           initial={{ y: -20, opacity: 0 }}

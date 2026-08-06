@@ -30,23 +30,19 @@ const interests = [
 
 const featured = [
   {
-    title: "Project One",
-    tag: "Full Stack",
+    title: "AZ Partners",
+    tag: "Next.js",
     description:
-      "Placeholder — paste your project details and I'll swap this card. Highlight the problem, your role, and the impact.",
+      "A modern corporate website for a New Zealand sourcing and procurement specialist.",
+    image: "/projects/azp.webp",
   },
   {
-    title: "Project Two",
-    tag: "AI / ML",
+    title: "Starmed Facility Services",
+    tag: "Frontend",
     description:
-      "Placeholder — describe the dataset, architecture, and metric wins. A short outcome line lands harder than a long list.",
-  },
-  {
-    title: "Project Three",
-    tag: "Computer Vision",
-    description:
-      "Placeholder — mention model, real-time constraints, and where it runs. Link the demo or repo when ready.",
-  },
+      "A professional online presence for a facility services company.",
+    image: "/projects/starmed.webp",
+  }
 ];
 
 export default function Home() {
@@ -255,7 +251,7 @@ export default function Home() {
         }
         subtitle="A short preview — the full case studies live on the projects page."
       >
-        <RevealStagger className="grid gap-6 md:grid-cols-3">
+        <RevealStagger className="grid gap-6 sm:grid-cols-2">
           {featured.map((p, i) => (
             <motion.article
               key={p.title}
@@ -265,12 +261,18 @@ export default function Home() {
               className="group relative flex flex-col overflow-hidden rounded-2xl border border-border/60 bg-card shadow-soft"
               data-cursor="hover"
             >
-              <div className="relative aspect-[4/3] overflow-hidden bg-gradient-primary">
-                <div className="absolute inset-0 opacity-30 mix-blend-overlay [background-image:radial-gradient(circle_at_20%_20%,white,transparent_50%)]" />
-                <div className="absolute bottom-4 left-4 font-mono text-[10px] uppercase tracking-[0.2em] text-ice/90">
+              <div className="relative aspect-[16/9] overflow-hidden bg-gradient-primary">
+                {(p as any).image ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img src={(p as any).image} alt={p.title} className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                ) : (
+                  <div className="absolute inset-0 opacity-30 mix-blend-overlay [background-image:radial-gradient(circle_at_20%_20%,white,transparent_50%)]" />
+                )}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-black/0" />
+                <div className="absolute bottom-4 left-4 font-mono text-[10px] uppercase tracking-[0.2em] text-white">
                   0{i + 1} / {featured.length}
                 </div>
-                <div className="absolute right-4 top-4 rounded-full bg-white/15 px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.2em] text-ice backdrop-blur">
+                <div className="absolute right-4 top-4 rounded-full bg-black/40 px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.2em] text-white backdrop-blur-md">
                   {p.tag}
                 </div>
               </div>
