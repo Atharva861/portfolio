@@ -17,7 +17,7 @@ export function Section({
   className?: string;
 }) {
   return (
-    <section id={id} className={cn("mx-auto w-full max-w-[1360px] px-6 lg:px-8 pt-40 pb-24 sm:pt-48 sm:pb-32", className)}>
+    <section id={id} className={cn("mx-auto w-full max-w-[1440px] px-4 pt-40 pb-24 sm:pt-48 sm:pb-32", className)}>
       {(eyebrow || title || subtitle) && (
         <div className="mb-14 max-w-3xl">
           {eyebrow && (

@@ -75,7 +75,7 @@ export default function Home() {
     <>
       {/* HERO */}
       <section className="relative isolate overflow-hidden pt-40 pb-24 sm:pt-48 sm:pb-32">
-        <div className="mx-auto max-w-[1360px] px-6 lg:px-8">
+        <div className="mx-auto max-w-[1440px] px-4">
           <div className="flex flex-col-reverse items-center justify-between gap-12 md:flex-row md:items-center md:gap-8 lg:gap-12">
             <div className="flex-1 max-w-full md:max-w-[58%] lg:max-w-[65%]">
               <motion.div

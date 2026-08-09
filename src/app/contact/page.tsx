@@ -42,7 +42,7 @@ export default function Contact() {
   return (
     <>
       <section className="relative pt-40 pb-24 sm:pt-48 sm:pb-32">
-        <div className="mx-auto max-w-[1360px] px-6 lg:px-8 text-center">
+        <div className="mx-auto max-w-[1440px] px-6 lg:px-8 text-center">
           <Reveal>
             <h1 className="text-5xl font-light leading-[1] tracking-tight sm:text-7xl">
               Let's build something <span className="gradient-text">together</span>.

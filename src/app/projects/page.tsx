@@ -428,7 +428,7 @@ export default function Projects() {
     <>
       {/* ── Hero ─────────────────────────────────────────────── */}
       <section className="relative pt-40 pb-12 sm:pt-48 sm:pb-16">
-        <div className="mx-auto max-w-[1360px] px-6 lg:px-8">
+        <div className="mx-auto max-w-[1440px] px-6 lg:px-8">
           <Reveal>
             <h1 className="max-w-4xl text-5xl font-light leading-[1] tracking-tight sm:text-7xl">
               A record of things I&apos;ve{" "}
@@ -458,7 +458,7 @@ export default function Projects() {
         >
           {/* Content area — padded for nav clearance */}
           <div
-            className="mx-auto w-full max-w-[1360px] px-2 md:px-3"
+            className="mx-auto w-full max-w-[1440px] px-2 md:px-3"
             style={{
               flex: 1,
               paddingTop: "5rem",

@@ -27,7 +27,6 @@ export async function getCurrentWeather(): Promise<WeatherInfo> {
     const windspeed = data.current_weather?.windspeed;
     const temperature = data.current_weather?.temperature ?? 0;
     
-    // WMO Weather interpretation codes
     // 0: Clear sky
     // 1, 2, 3: Mainly clear, partly cloudy, and overcast
     // 45, 48: Fog
@@ -39,7 +38,7 @@ export async function getCurrentWeather(): Promise<WeatherInfo> {
     // 80, 81, 82 (Rain showers)
     // 95, 96, 99 (Thunderstorm)
     const rainCodes = new Set([51, 53, 55, 56, 57, 61, 63, 65, 66, 67, 80, 81, 82, 95, 96, 99]);
-    const cloudyCodes = new Set([1, 2, 3, 45, 48]);
+    const cloudyCodes = new Set([3, 45, 48]);
     
     if (code !== undefined) {
       if (rainCodes.has(code)) {
@@ -51,7 +50,7 @@ export async function getCurrentWeather(): Promise<WeatherInfo> {
       if (windspeed !== undefined && windspeed > 20) {
         return { state: "windy", temperature };
       }
-      if (code === 0) {
+      if (code === 0 || code === 1 || code === 2) {
         return { state: "sunny", temperature };
       }
     }

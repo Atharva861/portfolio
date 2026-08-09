@@ -60,7 +60,7 @@
   --sapphire: #0047b8;
   --navy: #01052c;
 
-  --background: #f8f3ea;
+  --background: #fcfaec;
   --foreground: var(--navy);
   --card: oklch(1 0 0);
   --card-foreground: var(--navy);
@@ -93,8 +93,16 @@
   --sidebar-border: oklch(0.88 0.03 235);
   --sidebar-ring: var(--sapphire);
 
-  --gradient-primary: linear-gradient(135deg, oklch(0.44 0.19 260), oklch(0.15 0.08 265));
-  --gradient-soft: linear-gradient(180deg, oklch(0.985 0.008 240) 0%, oklch(0.925 0.028 240) 100%);
+  --gradient-primary: linear-gradient(
+    135deg,
+    oklch(0.44 0.19 260),
+    oklch(0.15 0.08 265)
+  );
+  --gradient-soft: linear-gradient(
+    180deg,
+    oklch(0.985 0.008 240) 0%,
+    oklch(0.925 0.028 240) 100%
+  );
   --shadow-soft: 0 10px 30px -12px oklch(0.15 0.08 265 / 0.18);
   --shadow-glow: 0 20px 60px -20px oklch(0.44 0.19 260 / 0.45);
 }
@@ -138,7 +146,12 @@
     -webkit-font-smoothing: antialiased;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     font-family: var(--font-pixelify-sans);
   }
 
@@ -148,7 +161,9 @@
   }
 
   @media (pointer: fine) {
-    *, *::before, *::after {
+    *,
+    *::before,
+    *::after {
       cursor: none !important;
     }
   }
@@ -206,7 +221,8 @@
 }
 
 @keyframes character-float {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0px);
   }
   50% {
@@ -215,7 +231,8 @@
 }
 
 @keyframes shadow-pulse {
-  0%, 100% {
+  0%,
+  100% {
     transform: scaleX(1);
     opacity: 0.35;
   }
