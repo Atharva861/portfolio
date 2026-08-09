@@ -262,9 +262,9 @@ export default function Home() {
               data-cursor="hover"
             >
               <div className="relative aspect-[16/9] overflow-hidden bg-gradient-primary">
-                {(p as any).image ? (
+                {p.image ? (
                   // eslint-disable-next-line @next/next/no-img-element
-                  <img src={(p as any).image} alt={p.title} className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                  <img src={p.image} alt={p.title} className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
                 ) : (
                   <div className="absolute inset-0 opacity-30 mix-blend-overlay [background-image:radial-gradient(circle_at_20%_20%,white,transparent_50%)]" />
                 )}
