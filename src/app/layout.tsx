@@ -7,6 +7,7 @@ import { CustomCursor } from "@/components/custom-cursor";
 import { SmoothScroll } from "@/components/smooth-scroll";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
+import { ScrollToTop } from "@/components/scroll-to-top";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -56,6 +57,7 @@ export default function RootLayout({
         <SmoothScroll />
         <SiteHeader />
         <main className="min-h-screen flex-1">{children}</main>
+        <ScrollToTop />
         <SiteFooter />
       </body>
     </html>
