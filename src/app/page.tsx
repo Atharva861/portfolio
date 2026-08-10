@@ -8,6 +8,7 @@ import { AnimatedButton } from "@/components/animated-button";
 import { Section } from "@/components/section";
 import { Reveal, RevealStagger, revealItem } from "@/components/reveal";
 import { WeatherMascot } from "@/components/weather-mascot";
+import { SkillsGrid } from "@/components/skill-block";
 import { GeistPixelGrid, GeistPixelCircle, GeistPixelTriangle, GeistPixelLine } from "geist/font/pixel";
 
 const skills = [
@@ -16,7 +17,6 @@ const skills = [
   { title: "Backend", items: ["Next.js API Routes", "FastAPI", "REST APIs"] },
   { title: "Databases", items: ["MySQL", "MongoDB"] },
   { title: "AI / ML", items: ["PyTorch", "TensorFlow", "OpenCV", "Scikit-learn", "Pandas", "NumPy"] },
-  { title: "Tools", items: ["Git", "Cloudflare", "GitHub", "VS Code"] },
   { title: "Deployment", items: ["Cloudflare Pages", "Vercel"] },
 ];
 
@@ -204,41 +204,14 @@ export default function Home() {
       </Section>
 
       {/* SKILLS */}
-      <Section
-        id="skills"
-        title={<>The toolkit.</>}
-        subtitle="Languages, frameworks, and tools I reach for — split by where they live in a project."
-      >
-        <RevealStagger className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {skills.map((cat) => (
-            <motion.div
-              key={cat.title}
-              variants={revealItem}
-              whileHover={{ y: -4 }}
-              transition={{ type: "spring", stiffness: 300, damping: 22 }}
-              className="group relative overflow-hidden rounded-2xl border border-border/60 bg-card p-6 shadow-soft transition-shadow hover:shadow-glow"
-              data-cursor="hover"
-            >
-              <div className="absolute inset-x-0 top-0 h-px bg-gradient-primary opacity-0 transition-opacity group-hover:opacity-100" />
-              <div className="mb-4 flex items-center justify-between">
-                <h3 className="text-lg font-medium">{cat.title}</h3>
-                <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
-                  {String(cat.items.length).padStart(2, "0")}
-                </span>
-              </div>
-              <div className="flex flex-wrap gap-2">
-                {cat.items.map((it) => (
-                  <span
-                    key={it}
-                    className="rounded-lg bg-secondary px-2.5 py-1 text-xs text-secondary-foreground"
-                  >
-                    {it}
-                  </span>
-                ))}
-              </div>
-            </motion.div>
-          ))}
-        </RevealStagger>
+      <Section id="skills">
+        <Reveal className="flex flex-col md:flex-row justify-between items-end mb-12">
+          <h2 className="text-3xl sm:text-5xl font-light tracking-tighter">
+            The toolkit.
+          </h2>
+        </Reveal>
+
+        <SkillsGrid skills={skills} />
       </Section>
 
       {/* FEATURED PROJECTS */}

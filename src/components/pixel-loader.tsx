@@ -25,7 +25,7 @@ export function PixelLoader() {
     };
     measure();
     window.addEventListener("resize", measure);
-    
+
     // Ensure canvas redraws when custom fonts are fully loaded
     document.fonts.ready.then(() => setFontLoaded(true));
 
@@ -106,25 +106,25 @@ export function PixelLoader() {
           >
             {ready
               ? pixels.map((p) => (
-                  <motion.span
-                    key={p.i}
-                    className="bg-navy block"
-                    initial={{ opacity: 1, scale: 1 }}
-                    animate={{ opacity: 0, scale: 0.6 }}
-                    transition={{
-                      duration: reduce ? 0.001 : 0.55,
-                      delay: p.delay,
-                      ease: [0.65, 0, 0.35, 1],
-                    }}
-                    onAnimationComplete={p.isLast ? handleComplete : undefined}
-                  />
-                ))
+                <motion.span
+                  key={p.i}
+                  className="bg-navy block"
+                  initial={{ opacity: 1, scale: 1 }}
+                  animate={{ opacity: 0, scale: 0.6 }}
+                  transition={{
+                    duration: reduce ? 0.001 : 0.55,
+                    delay: p.delay,
+                    ease: [0.65, 0, 0.35, 1],
+                  }}
+                  onAnimationComplete={p.isLast ? handleComplete : undefined}
+                />
+              ))
               : pixels.map((p) => (
-                  <span key={p.i} className="bg-navy block" />
-                ))}
+                <span key={p.i} className="bg-navy block" />
+              ))}
           </div>
           {/* Centered wordmark using standard DOM text */}
-          <motion.div 
+          <motion.div
             className="absolute inset-0 grid place-items-center"
             initial={{ clipPath: "inset(0% 0% 0% 0%)" }}
             animate={ready ? { clipPath: "inset(0% 0% 100% 0%)" } : { clipPath: "inset(0% 0% 0% 0%)" }}

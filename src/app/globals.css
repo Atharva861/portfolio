@@ -93,16 +93,12 @@
   --sidebar-border: oklch(0.88 0.03 235);
   --sidebar-ring: var(--sapphire);
 
-  --gradient-primary: linear-gradient(
-    135deg,
-    oklch(0.44 0.19 260),
-    oklch(0.15 0.08 265)
-  );
-  --gradient-soft: linear-gradient(
-    180deg,
-    oklch(0.985 0.008 240) 0%,
-    oklch(0.925 0.028 240) 100%
-  );
+  --gradient-primary: linear-gradient(135deg,
+      oklch(0.44 0.19 260),
+      oklch(0.15 0.08 265));
+  --gradient-soft: linear-gradient(180deg,
+      oklch(0.985 0.008 240) 0%,
+      oklch(0.925 0.028 240) 100%);
   --shadow-soft: 0 10px 30px -12px oklch(0.15 0.08 265 / 0.18);
   --shadow-glow: 0 20px 60px -20px oklch(0.44 0.19 260 / 0.45);
 }
@@ -161,6 +157,7 @@
   }
 
   @media (pointer: fine) {
+
     *,
     *::before,
     *::after {
@@ -221,21 +218,25 @@
 }
 
 @keyframes character-float {
+
   0%,
   100% {
     transform: translateY(0px);
   }
+
   50% {
     transform: translateY(-3px);
   }
 }
 
 @keyframes shadow-pulse {
+
   0%,
   100% {
     transform: scaleX(1);
     opacity: 0.35;
   }
+
   50% {
     transform: scaleX(0.88);
     opacity: 0.18;
@@ -248,6 +249,22 @@
 
 @utility animate-shadow-pulse {
   animation: shadow-pulse 4s ease-in-out infinite;
+}
+
+@keyframes blink {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+}
+
+@utility animate-blink {
+  animation: blink 1s step-end infinite;
 }
 
 @utility pixelated {
