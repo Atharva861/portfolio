@@ -13,7 +13,7 @@ const socials = [
 export function SiteFooter() {
   return (
     <footer className="mt-24 border-t border-border/60">
-      <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-6 px-6 py-10 sm:flex-row">
+      <div className="mx-auto flex max-w-[1440px] flex-col items-center justify-between gap-6 px-4 py-10 sm:flex-row sm:px-8 md:py-16">
         <div className="text-sm text-muted-foreground">
           &copy; {new Date().getFullYear()} <Link href="/" className="transition-colors hover:text-foreground">Atharva Salunke</Link>. Crafted with care.
         </div>
